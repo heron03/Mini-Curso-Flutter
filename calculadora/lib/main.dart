@@ -10,10 +10,11 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  double valorTotal = 0.0;
-  double valorSegundo = 0.0;
-  double valorPrimeiro = 0.0;
-  String operacao;
+  String valorTotal = '';
+  String valorSegundo = '';
+  String valorPrimeiro = '';
+  String operacao = '';
+  String textoValores = '0';
 
   @override
   void initState() {
@@ -32,7 +33,7 @@ class MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    valorTotal.toString(),
+                    textoValores.toString(),
                     style: TextStyle(fontSize: 50, color: Colors.black),
                   ),
                 ],
@@ -42,70 +43,10 @@ class MyAppState extends State<MyApp> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(7);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '7',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(8);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '8',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(9);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '9',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          opercaoPressionada('/');
-                        },
-                        color: Colors.grey,
-                        child: Text(
-                          '/',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  )
+                  botaoNumerico('7'),
+                  botaoNumerico('8'),
+                  botaoNumerico('9'),
+                  botaoOperacao('/'),
                 ],
               ),
             ),
@@ -113,70 +54,10 @@ class MyAppState extends State<MyApp> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(4);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '4',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(5);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '5',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(6);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '6',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          opercaoPressionada('X');
-                        },
-                        color: Colors.grey,
-                        child: Text(
-                          'X',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  )
+                  botaoNumerico('4'),
+                  botaoNumerico('5'),
+                  botaoNumerico('6'),
+                  botaoOperacao('X'),
                 ],
               ),
             ),
@@ -184,70 +65,10 @@ class MyAppState extends State<MyApp> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(1);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '1',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(2);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '2',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(3);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '3',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          opercaoPressionada('-');
-                        },
-                        color: Colors.grey,
-                        child: Text(
-                          '-',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  )
+                  botaoNumerico('1'),
+                  botaoNumerico('2'),
+                  botaoNumerico('3'),
+                  botaoOperacao('-'),
                 ],
               ),
             ),
@@ -255,38 +76,8 @@ class MyAppState extends State<MyApp> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          numeroPressionado(0);
-                        },
-                        color: Colors.blueAccent,
-                        child: Text(
-                          '0',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(1.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          opercaoPressionada('+');
-                        },
-                        color: Colors.grey,
-                        child: Text(
-                          '+',
-                          style: TextStyle(fontSize: 40.0),
-                        ),
-                      ),
-                    ),
-                  )
+                  botaoNumerico('0'),
+                  botaoOperacao('+'),
                 ],
               ),
             ),
@@ -335,43 +126,100 @@ class MyAppState extends State<MyApp> {
     );
   }
 
-  void numeroPressionado(double valorPressionado) {
-    if (valorPrimeiro == 0.0) {
-      valorPrimeiro = valorPressionado;
-    } else {
-      valorSegundo = valorPressionado;
-    }
+  void numeroPressionado(String valorPressionado) {
+    setState(() {
+      if (operacao == '') {
+        if (valorPrimeiro == '0') {
+          valorPrimeiro = '';
+        }
+        valorPrimeiro = valorPrimeiro + valorPressionado;
+        valorTotal = valorPrimeiro;
+      } else {
+        valorSegundo = valorSegundo + valorPressionado;
+      }
+
+      textoValores = valorPrimeiro + operacao + valorSegundo;
+    });
   }
 
   void opercaoPressionada(String operacaoPressionada) {
-    operacao = operacaoPressionada;
+    setState(() {
+      if (valorPrimeiro != '0') {
+        operacao = operacaoPressionada;
+      }
+      textoValores = valorPrimeiro + operacao + valorSegundo;
+    });
   }
 
   void calcular() {
     setState(() {
-      if (valorPrimeiro != 0.0 && valorSegundo != 0.0 && operacao != null) {
+      if (valorPrimeiro != '0' && valorSegundo != '0' && operacao != null) {
         if (operacao == '+') {
-          valorTotal = valorPrimeiro + valorSegundo;
+          valorTotal =
+              (int.parse(valorPrimeiro) + int.parse(valorSegundo)).toString();
         }
         if (operacao == '-') {
-          valorTotal = valorPrimeiro - valorSegundo;
+          valorTotal =
+              (int.parse(valorPrimeiro) - int.parse(valorSegundo)).toString();
         }
         if (operacao == 'X') {
-          valorTotal = valorPrimeiro * valorSegundo;
+          valorTotal =
+              (int.parse(valorPrimeiro) * int.parse(valorSegundo)).toString();
         }
         if (operacao == '/') {
-          valorTotal = valorPrimeiro / valorSegundo;
+          valorTotal =
+              (int.parse(valorPrimeiro) / int.parse(valorSegundo)).toString();
         }
+        textoValores = valorTotal;
       }
     });
   }
 
   void limparValores() {
     setState(() {
-      valorPrimeiro = 0.0;
-      valorSegundo = 0.0;
-      valorTotal = 0;
-      operacao = null;
+      valorPrimeiro = '0';
+      valorSegundo = '';
+      valorTotal = '0';
+      textoValores = '0';
+      operacao = '';
     });
+  }
+
+  Expanded botaoNumerico(String valorDoBotao) {
+    return Expanded(
+      flex: 1,
+      child: Padding(
+        padding: EdgeInsets.all(1.0),
+        child: FlatButton(
+          onPressed: () {
+            numeroPressionado(valorDoBotao);
+          },
+          color: Colors.blueAccent,
+          child: Text(
+            valorDoBotao,
+            style: TextStyle(fontSize: 40.0),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Expanded botaoOperacao(String operacao) {
+    return Expanded(
+      flex: 1,
+      child: Padding(
+        padding: EdgeInsets.all(1.0),
+        child: FlatButton(
+          onPressed: () {
+            opercaoPressionada(operacao);
+          },
+          color: Colors.grey,
+          child: Text(
+            operacao,
+            style: TextStyle(fontSize: 40.0),
+          ),
+        ),
+      ),
+    );
   }
 }
