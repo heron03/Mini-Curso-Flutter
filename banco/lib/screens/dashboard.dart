@@ -1,8 +1,15 @@
+import 'package:banco/models/transferencia.dart';
 import 'package:flutter/material.dart';
+
+import 'list_transferencia.dart';
 
 class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<Transferencia> listaDeTransferencia = [
+      Transferencia(100.10, 'Heron'),
+      Transferencia(200.10, 'João'),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text('Inicio'),
@@ -28,7 +35,14 @@ class DashBoard extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         child: RaisedButton(
                           child: Text('Tranferencia'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ListTransferencia(listaDeTransferencia),
+                              ),
+                            );
+                          },
                         ),
                       ),
                       Padding(
